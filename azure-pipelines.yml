@@ -1,0 +1,21 @@
+trigger:
+- main
+
+pr:
+- main
+
+jobs:
+- job: IntegrationTest
+  displayName: "Integration Test"
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+    - task: Checkout@1
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '7.0.x'
+    - script: dotnet build
+      displayName: 'Build Project'
+    - script: docker-compose up --build --abort-on-container-exit
+      displayName: 'Run Docker Compose'
