@@ -8,7 +8,7 @@ jobs:
 - job: IntegrationTest
   displayName: "Integration Test"
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: 'windows-latest'
   steps:
     - task: Checkout@1
     - task: UseDotNet@2
