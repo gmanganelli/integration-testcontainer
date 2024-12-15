@@ -10,7 +10,7 @@ jobs:
   # Integration Test
   tests:
     name: "Integration Test"
-    runs-on: ubuntu-latest
+    runs-on: self-hosted  # buntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Setup .NET 7.0
