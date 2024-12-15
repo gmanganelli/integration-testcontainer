@@ -10,7 +10,7 @@ jobs:
   # Integration Test
   tests:
     name: "Integration Test"
-    runs-on: prometh-grafana
+    runs-on: ubuntu-latest #prometh-grafana
     steps:
       - uses: actions/checkout@v1
       - name: Setup .NET 7.0
@@ -18,4 +18,4 @@ jobs:
         with:
           dotnet-version: 7.0.x
       - run: dotnet build
-      - run: docker-compose up --build --abort-on-container-exit
+      - run: docker compose up --build --abort-on-container-exit
