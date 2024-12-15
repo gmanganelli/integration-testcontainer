@@ -8,7 +8,7 @@ jobs:
 - job: IntegrationTest
   displayName: "Integration Test"
   pool:
-    vmImage: 'windows-latest'
+    vmImage: 'ubuntu-latest'
   steps:
     - task: Checkout@1
     - task: UseDotNet@2
@@ -17,5 +17,5 @@ jobs:
         version: '7.0.x'
     - script: dotnet build
       displayName: 'Build Project'
-    - script: docker-compose up --build --abort-on-container-exit
+    - script: docker compose up --build --abort-on-container-exit
       displayName: 'Run Docker Compose'
